@@ -19,7 +19,7 @@ export class PersonManageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
   ) {}
   public sports$ = this.sharedService.GetSports();
 
