@@ -1,0 +1,72 @@
+<mat-card>
+
+    <div class="container full-width flex">
+        <h1 class="float-left">Staging Data</h1>
+        <button mat-flat-button color="primary" [routerLink]="['/person','add']" type="button">
+            <mat-icon class="padding-right-25">add</mat-icon>
+            Add
+        </button>        
+    </div>
+
+    <div class="container full-width float-right">
+        <form [formGroup]="searchForm">
+          <mat-form-field>
+            <mat-icon matPrefix>search</mat-icon>
+            <input formControlName="searchTerm" matInput placeholder="Search" />
+            <button (click)="searchForm.reset()" aria-label="Clear" mat-icon-button matSuffix>
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+      </div>
+
+      
+<table    [dataSource]="tableView$" mat-table matSort>
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+      <th *matHeaderCellDef mat-header-cell class="padding-15">
+        {{ column.header }}
+      </th>
+      <td *matCellDef="let row" mat-cell class="padding-15">
+        {{ column.cell(row) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th *matHeaderCellDef mat-header-cell>
+        Action
+      </th>
+      <td *matCellDef="let row" mat-cell>
+        <button [routerLink]="['/person','id']">dfchgbhjvhgv</button>
+      </td>
+  
+    </ng-container>
+  
+     
+    <tr *matHeaderRowDef="addActionDisplayColumn" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: addActionDisplayColumn" mat-row></tr>
+    <tr *matNoDataRow>
+      <td [attr.colspan]="colSpanNumber">
+        <div class="center">
+          <img src="./assets/icons/NoResult.svg">
+        </div>
+        <div class="center txt">
+          <p class="no-results-header">No data</p>
+        </div>
+        <div class="center">
+          <p class="no-results-sub-header">No to display yet.</p>
+        </div>
+        <div class="center">
+          <button   color="primary" mat-flat-button type="button">
+            <mat-icon >add</mat-icon>
+            add
+          </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <!-- <mat-paginator (page)="handlePageEvent($event)" [length]="length$ |async " [pageSizeOptions]="pageSizeOptions"
+    aria-label="Select page of site data" showFirstLastButtons>
+  </mat-paginator> -->
+  
+
+
+</mat-card>
