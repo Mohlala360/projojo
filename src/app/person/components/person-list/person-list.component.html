@@ -1,14 +1,14 @@
 <mat-card>
 
-    <div class="container full-width flex">
-        <h1 class="float-left">Staging Data</h1>
-        <button mat-flat-button color="primary" [routerLink]="['/person','add']" type="button">
-            <mat-icon class="padding-right-25">add</mat-icon>
+    <div  >
+        <h1 class="float-left">Data </h1>
+        <button style="float: left;" mat-flat-button color="primary" [routerLink]="['/person','add']" type="button">
+            <mat-icon style="padding: 2px;">add</mat-icon>
             Add
         </button>        
     </div>
 
-    <div class="container full-width float-right">
+    <div class="container full-width float-right" style="float: right; padding-right: 70%;">
         <form [formGroup]="searchForm">
           <mat-form-field>
             <mat-icon matPrefix>search</mat-icon>
@@ -23,10 +23,10 @@
       
 <table    [dataSource]="tableView$" mat-table matSort>
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-      <th *matHeaderCellDef mat-header-cell class="padding-15">
+      <th *matHeaderCellDef mat-header-cell  style="padding: 20px;">
         {{ column.header }}
       </th>
-      <td *matCellDef="let row" mat-cell class="padding-15">
+      <td *matCellDef="let row" mat-cell style="padding: 20px;">
         {{ column.cell(row) }}
       </td>
     </ng-container>
@@ -35,7 +35,7 @@
         Action
       </th>
       <td *matCellDef="let row" mat-cell>
-        <button [routerLink]="['/person','id']">dfchgbhjvhgv</button>
+        <button [routerLink]="['/person','id']">view</button>
       </td>
   
     </ng-container>
