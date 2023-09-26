@@ -34,6 +34,8 @@
     </div>
     <div>
         <button mat-fab color="accent" (click)="clear()"> Cancel</button>
-        <button mat-fab color="primary" class="right" (click)="add()">Save</button>
+
+        <button mat-fab color="primary" *ngIf="person.id" class="right" (click)="update()">Update</button>
+        <button mat-fab color="primary" *ngIf="!person.id" class="right" (click)="add()">Save</button>
     </div>
 </mat-card>

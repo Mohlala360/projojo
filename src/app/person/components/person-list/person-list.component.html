@@ -45,6 +45,13 @@
       <mat-cell *matCellDef="let row"> {{row.isPallndrome}} </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+      <mat-cell *matCellDef="let row"> <a mat-icon color="primary"
+          (click)="updateRowData(row)"><mat-icon>edit</mat-icon></a>
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;">
     </mat-row>

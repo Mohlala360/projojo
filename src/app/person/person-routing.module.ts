@@ -19,7 +19,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'person/:id',
+    path: 'person/edit/:id',
     component: PersonManageComponent,
     pathMatch: 'full',
   },

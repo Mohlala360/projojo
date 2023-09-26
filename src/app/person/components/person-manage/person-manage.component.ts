@@ -17,6 +17,7 @@ export class PersonManageComponent implements OnInit {
     private personService: PersonService,
     private sharedService: SharedService,
     private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
     private snackBar: MatSnackBar,
     private router: Router
   ) {}
@@ -36,7 +37,16 @@ export class PersonManageComponent implements OnInit {
   public addActive: boolean = false;
   public editActive: boolean = false;
   public detailActive: boolean = false;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      if (params['id']) {
+        this.personService.GetPerson(params['id']).subscribe((person) => {
+          this.person = person;
+          this.setPersonData();
+        });
+      }
+    });
+  }
   add() {
     this.person = {
       id: '',
@@ -58,8 +68,29 @@ export class PersonManageComponent implements OnInit {
         }
       });
   }
-
+  setPersonData() {
+    this.personManageForm.patchValue(this.person);
+  }
   clear() {
     this.personManageForm.reset();
+  }
+
+  update() {
+    this.person = {
+      id: this.person.id,
+      firstName: this.personManageForm.value.firstName,
+      lastName: this.personManageForm.value.lastName,
+      isAuthorized: this.personManageForm.value.isAuthorized,
+      isValid: this.personManageForm.value.isValid,
+      isPallndrome: this.personManageForm.value.isPallndrome,
+      isEnabled: this.personManageForm.value.isEnabled,
+    };
+    
+    this.personService
+      .UpdatePerson(this.person.id, this.person)
+      .pipe()
+      .subscribe((p) => {
+        this.snackBar.open('Updated  Sharp');
+      });
   }
 }
