@@ -17,9 +17,8 @@ export class PersonManageComponent implements OnInit {
     private personService: PersonService,
     private sharedService: SharedService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute,
     private snackBar: MatSnackBar,
-    private router: Router,
+    private router: Router
   ) {}
   public sports$ = this.sharedService.GetSports();
 
@@ -37,21 +36,7 @@ export class PersonManageComponent implements OnInit {
   public addActive: boolean = false;
   public editActive: boolean = false;
   public detailActive: boolean = false;
-  ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      if (params['add'] == 'add') {
-        this.addActive = !this.addActive;
-      }
-      if (params['add'] == 'edit') {
-        this.editActive = !this.editActive;
-      }
-      if (params['id'] == 'id') {
-        this.detailActive = !this.detailActive;
-      }
-
-      //I am having issues with routing so I hade to do this spagetti
-    });
-  }
+  ngOnInit(): void {}
   add() {
     this.person = {
       id: '',

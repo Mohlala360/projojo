@@ -1,35 +1,39 @@
-<mat-card>
-    <div *ngIf="addActive" style="padding: 2%; display: flex;">
+<div class="table-header gap-2 flex  w-full">
+    <button mat-fab color="primary" routerLink="/person">
+        <mat-icon>home</mat-icon>
+    </button>
+</div>
+
+<mat-card class="w-half">
+    <div>
         <form [formGroup]="personManageForm">
             <mat-form-field style="width: 100%;">
                 <input formControlName="firstName" matInput placeholder="First Name" />
             </mat-form-field>
 
             <mat-form-field style="width: 100%;">
-                <input formControlName="lastName" matInput placeholder="Last Name" /> 
+                <input formControlName="lastName" matInput placeholder="Last Name" />
             </mat-form-field>
 
-            <mat-slide-toggle style="width: 100%;padding: 2%;" class="toggle" color="warn" formControlName="isEnabled"
+            <mat-slide-toggle class="gap-2 w-full flex p-2" color="warn" formControlName="isEnabled"
                 labelPosition="before">
-                <span class="margin-right-20">Enabled</span>
+                <span>Enabled</span>
             </mat-slide-toggle>
 
-            <mat-slide-toggle style="width: 100%;padding: 2%;" color="warn" formControlName="isValid"
+            <mat-slide-toggle class="gap-2 w-full flex p-2" color="primary" formControlName="isValid"
                 labelPosition="before">
-                <span class="margin-right-20">Valid</span>
+                <span>Valid</span>
             </mat-slide-toggle>
 
-            <mat-slide-toggle style="width: 100%; padding: 2%;" class="toggle" color="warn"
-                formControlName="isAuthorized" labelPosition="before">
-                <span class="margin-right-20">Authorized</span>
+            <mat-slide-toggle class="gap-2 w-full flex p-2" color="warn" formControlName="isAuthorized"
+                labelPosition="before">
+                <span>Authorized</span>
             </mat-slide-toggle>
 
         </form>
     </div>
     <div>
-        <button style=" margin-left: 1%;padding-right: 1%;padding-left: 1%;" (click)="clear()"> Cancel</button>
-        <button style="float: right; margin-right: 60%;padding-right: 1%;padding-left: 1%;" (click)="add()">Save</button>
+        <button mat-fab color="accent" (click)="clear()"> Cancel</button>
+        <button mat-fab color="primary" class="right" (click)="add()">Save</button>
     </div>
-
-
 </mat-card>
