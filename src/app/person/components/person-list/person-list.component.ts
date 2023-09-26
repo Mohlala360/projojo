@@ -1,60 +1,42 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PersonService } from '../../api/person.service';
 import { FormBuilder } from '@angular/forms';
-import { Person } from '../../models/person'; 
+import { Person } from '../../models/person';
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-person-list',
   templateUrl: './person-list.component.html',
 })
 export class PersonListComponent {
-  constructor(
-    private personService: PersonService,
-    private formBuilder: FormBuilder,
-    private router: Router
-  ) {
-    this.addActionDisplayColumn = this.displayedColumns.concat(['action']);
+  displayedColumns = ['id', 'name', 'isEnabled', 'isValid','isAuthorized','isPallndrome'];
+  
+  dataSource!: MatTableDataSource<Person>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private personService: PersonService) {
+    this.personService.GetPersons().subscribe((persons) => {
+      this.dataSource = new MatTableDataSource(persons);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+  } 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-  public searchForm = this.formBuilder.nonNullable.group({
-    searchTerm: '',
-    isApproved: false,
-  });
-
-  // @ViewChild(MatPaginator) public paginator!: MatPaginator;
-
-  public columns = [
-    {
-      columnDef: 'Name',
-      header: 'Name',
-      cell: (element: Person): string =>
-        `${element?.firstName} ${element?.lastName}`,
-    },
-    {
-      columnDef: 'isEnabled',
-      header: 'Enabled',
-      cell: (element: Person): boolean | undefined => element?.isEnabled,
-    },
-    {
-      columnDef: 'isValid',
-      header: 'Valid',
-      cell: (element: Person): boolean | undefined => element?.isValid,
-    },
-    {
-      columnDef: 'isAuthorized',
-      header: 'Authorized',
-      cell: (element: Person): boolean | undefined => element?.isAuthorized,
-    },
-    {
-      columnDef: 'isPallndrome',
-      header: 'Pallndrome',
-      cell: (element: Person): boolean | undefined => element?.isPallndrome,
-    },
-  ];
-  public displayedColumns = this.columns.map((column) => column.columnDef);
-  public addActionDisplayColumn: string[] = [];
-  public colSpanNumber!: number;
-
-  public tableView$ = this.personService.GetPersons();
-}
+  applyFilter(target: any) {
+    var filterValue = target.value;
+    if (filterValue.length > 0) {
+      filterValue = filterValue.trim();
+      filterValue = filterValue.toLowerCase();
+      this.dataSource.filter = filterValue;
+    }
+  }
+}  

@@ -1,82 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+.table-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
 
-.container {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .container-col {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .col-2 {
-    flex-grow: 2;
-  }
-  
-  .col-1 {
-    flex-grow: 1;
-  }
-  
-  .scrollable {
-    overflow: auto;
-    max-height: 100%;
-  }
-  
-  .mat-drawer-container {
-    background-color: white;
-  }
-  
-  .mat-drawer-container {
-    height: 100%;
-  }
-  
-  .mat-mdc-dialog-content {
-    max-height: 100% !important;
-  }
-  
-  .padding-15 {
-    padding: 15px;
-  }
-  
-  .padding-top-10 {
-    padding-top: 10px !important;
-  }
-  
-  .padding-bottom-10 {
-    padding-bottom: 10px !important;
-  }
-  
-  .padding-form {
-    padding-top: 10px;
-    padding-left: 6px;
-  }
-  
-  .padding-left-6 {
-    padding-left: 6px;
-  }
-  
-  .padding-right-25 {
-    padding-right: 25%;
-  }
-  
-  .margin-20 {
-    margin: 20px;
-  }
-  
-  .margin-right-5 {
+.table-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+  .mat-icon {
     margin-right: 5px;
   }
-  
-  .margin-bottom-0 {
-    margin-bottom: 0px !important;
+  input {
+    margin: 2px;
   }
-  
-  .margin-right-20 {
-    margin-right: 20px;
-  }
-  
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
