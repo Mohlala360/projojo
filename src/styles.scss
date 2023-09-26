@@ -20,9 +20,28 @@ body {
   padding: 8px 24px 0;
 }
 
+.flex {
+  display: flex;
+}
+
+.gap-2{
+  gap: 20px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.w-full {
+  width: 100%;
+}
+
 .mat-form-field {
   font-size: 14px;
-  width: 100%;
   .mat-icon {
     margin-right: 5px;
   }

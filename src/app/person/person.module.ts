@@ -57,6 +57,7 @@ import { PersonManageComponent } from './components/person-manage/person-manage.
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
+    MatButtonModule,
     MatCheckboxModule,
     MatSlideToggleModule,
     MatSnackBarModule,

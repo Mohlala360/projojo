@@ -56,6 +56,7 @@ import { SharedService } from './shared/api/shared.service';
     MatFormFieldModule,
     MatButtonModule,
     MatDividerModule,
+    MatButtonModule,
     MatProgressBarModule,
     MatDialogModule,
     MatSelectModule,

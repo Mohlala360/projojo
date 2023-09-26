@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: PersonListComponent,
   },
   {
-    path: 'person/:add',
+    path: 'person/add',
     component: PersonManageComponent,
     pathMatch: 'full',
   },
