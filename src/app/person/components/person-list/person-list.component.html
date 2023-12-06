@@ -19,30 +19,15 @@
     </ng-container>
 
     <!-- Progress Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.firstName}} {{row.lastName}}</mat-cell>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="isEnabled">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Enabled </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.isEnabled}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="isValid">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Valid </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.isValid}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="isAuthorized">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Authorized </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.isAuthorized}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="isPallndrome">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Pallndrome </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.isPallndrome}} </mat-cell>
+    <ng-container matColumnDef="completed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Completed </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.completed}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="action">

@@ -24,12 +24,8 @@ export class PersonManageComponent implements OnInit {
   public sports$ = this.sharedService.GetSports();
 
   public personManageForm = this.formBuilder.nonNullable.group({
-    firstName: '',
-    lastName: '',
-    isValid: false,
-    isAuthorized: false,
-    isEnabled: false,
-    isPallndrome: false,
+    title: '', 
+    completed: false, 
   });
 
   public person!: Person;
@@ -50,12 +46,8 @@ export class PersonManageComponent implements OnInit {
   add() {
     this.person = {
       id: '',
-      firstName: this.personManageForm.value.firstName,
-      lastName: this.personManageForm.value.lastName,
-      isAuthorized: this.personManageForm.value.isAuthorized,
-      isValid: this.personManageForm.value.isValid,
-      isPallndrome: this.personManageForm.value.isPallndrome,
-      isEnabled: this.personManageForm.value.isEnabled,
+      title: this.personManageForm.value.title,
+      completed: this.personManageForm.value.completed,
     };
     this.personService
       .CreatePerson(this.person)
@@ -78,12 +70,8 @@ export class PersonManageComponent implements OnInit {
   update() {
     this.person = {
       id: this.person.id,
-      firstName: this.personManageForm.value.firstName,
-      lastName: this.personManageForm.value.lastName,
-      isAuthorized: this.personManageForm.value.isAuthorized,
-      isValid: this.personManageForm.value.isValid,
-      isPallndrome: this.personManageForm.value.isPallndrome,
-      isEnabled: this.personManageForm.value.isEnabled,
+      title: this.personManageForm.value.title, 
+      completed: this.personManageForm.value.completed,
     };
     
     this.personService

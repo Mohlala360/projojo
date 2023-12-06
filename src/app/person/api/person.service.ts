@@ -13,18 +13,18 @@ export class PersonService {
   }
 
   public GetPersons(): Observable<Person[]> {
-    return this.http.get<Person[]>(`${this.environment}/person`);
+    return this.http.get<Person[]>(`${this.environment}/todos`);
   }
 
   public GetPerson(id: string): Observable<Person> {
-    return this.http.get<Person>(`${this.environment}/person/${id}`);
+    return this.http.get<Person>(`${this.environment}/todos/${id}`);
   }
 
   public UpdatePerson(id: string, person: Person): Observable<Person> {
-    return this.http.put<Person>(`${this.environment}/person/${id}`, person);
+    return this.http.put<Person>(`${this.environment}/todos/${id}`, person);
   }
 
   public CreatePerson(person: Person): Observable<Person> {
-    return this.http.post<Person>(`${this.environment}/person`, person);
+    return this.http.post<Person>(`${this.environment}/todos`, person);
   }
 }

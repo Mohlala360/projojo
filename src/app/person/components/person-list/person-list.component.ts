@@ -16,11 +16,8 @@ import { PersonManageComponent } from '../person-manage/person-manage.component'
 export class PersonListComponent {
   displayedColumns = [
     'id',
-    'name',
-    'isEnabled',
-    'isValid',
-    'isAuthorized',
-    'isPallndrome',
+    'title',
+    'completed', 
     'action'
   ];
 
@@ -35,6 +32,8 @@ export class PersonListComponent {
     private router: Router
   ) {
     this.personService.GetPersons().subscribe((persons) => {
+
+      console.log(persons)
       this.dataSource = new MatTableDataSource(persons);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
